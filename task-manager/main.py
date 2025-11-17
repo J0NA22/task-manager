@@ -506,6 +506,38 @@ def toggle_auto_update():
 btn_update = ttk.Button(settings_frame, textvariable=update_btn_text, command=toggle_auto_update)
 btn_update.pack(side="left", padx=5)
 
+# ---- About us ----
+def show_about():
+    about = tk.Toplevel(root)
+    about.title("About us")
+    about.geometry("420x220")
+    about.resizable(False, False)
+
+    # centrado simple
+    about.update_idletasks()
+    x = root.winfo_x() + (root.winfo_width() // 2) - (about.winfo_width() // 2)
+    y = root.winfo_y() + (root.winfo_height() // 2) - (about.winfo_height() // 2)
+    about.geometry(f"+{x}+{y}")
+
+    frame = ttk.Frame(about, padding=15)
+    frame.pack(fill="both", expand=True)
+
+    ttk.Label(frame, text="👥 About us", font=("Segoe UI", 12, "bold")).pack(pady=(0, 10))
+
+    ttk.Label(frame, text="Halley Daili Rugama Castillo").pack(anchor="w")
+    ttk.Label(frame, text="Carnet: 2022-0298U").pack(anchor="w", pady=(0, 8))
+
+    ttk.Label(frame, text="Ana Sofía Ordóñez Baldelomar").pack(anchor="w")
+    ttk.Label(frame, text="Carnet: 2022-0285U").pack(anchor="w", pady=(0, 8))
+
+    ttk.Label(frame, text="Jonathan Jesús Saravia López").pack(anchor="w")
+    ttk.Label(frame, text="Carnet: 2020-0501U").pack(anchor="w", pady=(0, 15))
+
+    ttk.Button(frame, text="Cerrar", command=about.destroy).pack(pady=(0, 5))
+
+btn_about = ttk.Button(settings_frame, text="👥 About us", command=show_about)
+btn_about.pack(side="left", padx=5)
+
 def toggle_settings():
     # mostrar/ocultar panel de ajustes
     if settings_frame.winfo_ismapped():
